@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-#a function to make a graph from the stock data and revenue (I don't understand it yet).
+#The function to make a graph from the stock data and revenue.
 def make_graph(stock_data, revenue_data, stock):
     fig = make_subplots(rows=2, cols=1, shared_xaxes=True, subplot_titles=("Historical Share Price", "Historical Revenue"), vertical_spacing = .3)
     stock_data_specific = stock_data[stock_data.Date <= '2021--06-14']
@@ -34,7 +34,7 @@ print(tesla_data.head())
 url = "https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-PY0220EN-SkillsNetwork/labs/project/revenue.htm"
 html_data = requests.get(url).text
 soup = BeautifulSoup(html_data, "html5lib")
-data = []   # Initialize an empty list to store data (we're supose to create a dataframe, but something wrong hapens whene we do it).
+data = []   # Initialize an empty list to store data.
 
 for row in soup.find_all("tbody")[1].find_all("tr"):
     col = row.find_all("td")
@@ -60,7 +60,7 @@ print(gme_data.head())
 url1 = "https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-PY0220EN-SkillsNetwork/labs/project/stock.html"
 html_data1 = requests.get(url1).text
 soup1 = BeautifulSoup(html_data1, "html5lib")
-data1 = [] # Initialize an empty list to store data (we're supose to create a dataframe, but something wrong hapens whene we do it).
+data1 = [] # Initialize an empty list to store data .
 
 for row in soup1.find_all("tbody")[1].find_all("tr"):
     col = row.find_all("td")
